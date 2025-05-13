@@ -10,7 +10,7 @@ agrupado = GROUP data BY location;
 
 -- Calcular totales por ubicación
 resultados = FOREACH agrupado GENERATE 
-    group AS `location`,
+    group AS location,
     SUM(data.transaction_count) AS total_transacciones,
     SUM(data.value) / SUM(data.transaction_count) AS promedio_valor;
 
